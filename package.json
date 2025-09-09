@@ -1,0 +1,26 @@
+{
+  "name": "grpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start:user": "nodemon services/user-service/server.js",
+  "start:order": "nodemon services/order-service/server.js",
+  "start:gateway": "nodemon gateway/server.js",
+  "dev": "concurrently \"npm run start:user\" \"npm run start:order\" \"npm run start:gateway\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.8.0",
+    "concurrently": "^9.2.1",
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
