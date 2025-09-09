@@ -17,10 +17,10 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 
 const userProto = grpc.loadPackageDefinition(packageDefinition).user;
 
-// In-memory storage (use database in production)
+
 const users = new Map();
 
-// Service implementation
+
 const userService = {
   GetUser: (call, callback) => {
     const { user_id } = call.request;
@@ -112,7 +112,7 @@ server.bindAsync(`0.0.0.0:${port}`, grpc.ServerCredentials.createInsecure(), (er
   server.start();
 });
 
-// Graceful shutdown
+
 process.on('SIGINT', () => {
   console.log('\nShutting down User Service...');
   server.tryShutdown((error) => {
